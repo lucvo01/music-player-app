@@ -1,4 +1,4 @@
-import {useMusicPlayer} from "../contexts/MusicPlayerContext"
+import useMusicPlayer from "../hooks/useMusicPlayer.js"
 
 const TrackList = () => {
 const { trackList, currentTrackName, playTrack, isPlaying } = useMusicPlayer();
