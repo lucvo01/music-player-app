@@ -1,12 +1,10 @@
-import React from 'react';
-import './App.css';
-import TrackList from './component/TrackList';
-import MusicPlayerSlider from './component/Player';
+import React from "react";
+import "./App.css";
+import MusicPlayer from "./component/MusicPlayer";
 function App() {
   return (
-    < >
-      <TrackList/>
-      <MusicPlayerSlider/>
+    <>
+      <MusicPlayer />
     </>
   );
 }

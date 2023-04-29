@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 // import Slider from "@mui/material/Slider";
 import IconButton from "@mui/material/IconButton";
-import Stack from "@mui/material/Stack";
+// import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import PauseRounded from "@mui/icons-material/PauseRounded";
 import PlayArrowRounded from "@mui/icons-material/PlayArrowRounded";
@@ -13,7 +13,7 @@ import FastRewindRounded from "@mui/icons-material/FastRewindRounded";
 // import VolumeUpRounded from "@mui/icons-material/VolumeUpRounded";
 // import VolumeDownRounded from "@mui/icons-material/VolumeDownRounded";
 import useMusicPlayer from "../hooks/useMusicPlayer.js";
-import { useState } from "react";
+// import { useState } from "react";
 
 const WallPaper = styled("div")({
   position: "absolute",
@@ -60,7 +60,7 @@ const Widget = styled("div")(({ theme }) => ({
   backdropFilter: "blur(40px)"
 }));
 
-export default function MusicPlayerSlider() {
+export default function MusicPlayer() {
   const {
     trackList,
     currentTrackName,
@@ -75,30 +75,55 @@ export default function MusicPlayerSlider() {
 
   return (
     <Box sx={{ width: "100%", overflow: "hidden" }}>
-      <Widget>
-        <Box sx={{ display: "flex", alignItems: "center" }}>
-          <Box sx={{ ml: 1.5, minWidth: 0 }}>
-            <Typography noWrap>{currentTrackName}</Typography>
-
-            {trackList.map((track, index) => (
-              // ( Surprise us with your code here)
-              <Button
-                variant="outlined"
-                className="song-title"
-                onClick={() => playTrack(index)}
-              >
-                {track.name}
-              </Button>
-            ))}
-          </Box>
+      <Widget
+        sx={{
+          height: "500px",
+          width: "300px",
+          borderRadius: "70px",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between"
+        }}
+      >
+        <Box
+          sx={{
+            ml: 1.5,
+            Width: "66px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+            textAlign: "center"
+            // position: "absolute"
+          }}
+        >
+          <Typography noWrap>{currentTrackName}</Typography>
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column"
+            // position: "fixed"
+            // justifyContent: "space-around"
+          }}
+        >
+          {trackList.map((track, index) => (
+            // ( Surprise us with your code here)
+            <Button
+              sx={{ mt: "10px", borderRadius: "20px" }}
+              variant="outlined"
+              className="song-title"
+              onClick={() => playTrack(index)}
+            >
+              {track.name}
+            </Button>
+          ))}
         </Box>
 
         <Box
           sx={{
             display: "flex",
             alignItems: "center",
-            justifyContent: "center",
-            mt: -1
+            justifyContent: "center"
           }}
         >
           <IconButton aria-label="previous song" onClick={playPreviousTrack}>
